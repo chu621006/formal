@@ -9,19 +9,15 @@ def main():
     # ===== HEADER =====
     st.title("📄 成績單學分計算工具")
 
-    # 使用說明超連結
-    st.markdown(
-        '<p style="margin-top:-10px; margin-bottom:20px;">'
-        '📖 <a href="usage_guide.pdf" target="_blank">使用說明 (PDF)</a></p>',
-        unsafe_allow_html=True
-    )
-
-    st.write("請上傳 PDF（純表格）或 Word（.docx）格式的成績單檔案。")
-
-    # ===== FILE UPLOADER =====
-    uploaded_file = st.file_uploader(
-        "選擇一個成績單檔案（支援 PDF, DOCX）",
-        type=["pdf", "docx"],
+    # —— 取代原本的 Markdown 超連結 —— 
+    # 改成下載按鈕，確保使用說明能正確打開
+    with open("usage_guide.pdf", "rb") as f:
+        pdf_bytes = f.read()
+    st.download_button(
+        label="📖 使用說明 (PDF)",
+        data=pdf_bytes,
+        file_name="使用說明.pdf",
+        mime="application/pdf"
     )
 
     if not uploaded_file:
@@ -107,5 +103,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
