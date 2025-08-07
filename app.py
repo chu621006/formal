@@ -112,7 +112,7 @@ def main():
     st.markdown(
         '<p style="text-align:center;">'
         '感謝您的使用，若您有相關修改建議或發生其他類型錯誤，'
-        '<a href="https://你的回饋表單鏈結" target="_blank">請點此回饋</a>'
+        '<a href="https://forms.gle/Bu95Pt74d1oGVCev5" target="_blank">請點此回饋</a>'
         '</p>',
         unsafe_allow_html=True
     )
@@ -126,3 +126,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
