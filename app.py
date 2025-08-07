@@ -86,21 +86,24 @@ def main():
     else:
         st.info("沒有找到任何不及格的課程。")
 
-    # 回饋與開發者區塊
+    # ===== FOOTER (永遠顯示) =====
     st.markdown("---")
     st.markdown(
-        '<p>感謝您的使用，若您有相關修改建議或發生其他類型錯誤，'
-        '<a href="https://forms.gle/9tDRDWATNMu567wx5" target="_blank">請點選此處</a></p>',
-        unsafe_allow_html=True
-    )
-    st.markdown(
-        '<p>開發者：'
-        '<a href="https://www.instagram.com/chiuuuuu11.7?igsh=MWRlc21zYW55dWZ5Yw==" target="_blank">Chu</a>'
-        '</p>',
-        unsafe_allow_html=True
+        """
+        <p style="text-align:center; margin:1rem 0;">
+          感謝您的使用，若您有相關修改建議或發生其他類型錯誤，
+          <a href="https://forms.gle/6Jmcj2z3ArVENx6m6" target="_blank" style="text-decoration:none;">
+            請點選此行
+          </a>
+        </p>
+        <p style="text-align:center; margin:0.5rem 0;">
+          開發者：<a href="https://www.instagram.com/chiuuuuu11.7?igsh=MWRlc21zYW55dWZ5Yw==" target="_blank" style="text-decoration:none;">
+            Chu
+          </a>
+        </p>
+        """,
+        unsafe_allow_html=True,
     )
 
 if __name__ == "__main__":
     main()
-
-
