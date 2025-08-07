@@ -19,6 +19,16 @@ def main():
         mime="application/pdf"
     )
 
+    # 錯誤修正按鈕
+    with open("notfound_fix.pdf", "rb") as f:
+        pdf_bytes = f.read()
+    st.download_button(
+        label="⚠️「未識別到任何紀錄」情況處理方式",
+        data=pdf_bytes,
+        file_name="「未識別到任何紀錄」情況處理",
+        mime="application/pdf"
+    )
+
     st.write("請上傳 PDF（純表格）或 Word（.docx）格式的成績單檔案。")
     uploaded_file = st.file_uploader(
         "選擇一個成績單檔案（支援 PDF, DOCX）", 
@@ -92,3 +102,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
