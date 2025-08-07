@@ -74,14 +74,27 @@ if __name__ == "__main__":
     main()
 
     # ---------------------------
-    # 固定顯示在最底部的開發者資訊
+    # 使用者回饋＆開發者資訊（固定顯示在最底部）
     # ---------------------------
     st.markdown("---")
+    # 第一行：回饋連結
     st.markdown(
         """
-        <div style="text-align:center; color:gray; font-size:0.9em; margin-top:1em;">
-            開發者：<a href="https://www.instagram.com/chiuuuuu11.7?igsh=MWRlc21zYW55dWZ5Yw==">Chu</a>
+        <div style="text-align:center; margin-top:1em; font-size:0.9em;">
+            感謝您的使用，若您有相關修改建議或發生其他類型錯誤，
+            <a href="https://forms.gle/146ReKXmuMZELbkR6" target="_blank">請點選此處</a>
         </div>
         """,
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
+    # 第二行：開發者資訊
+    st.markdown(
+        """
+        <div style="text-align:center; color:gray; font-size:0.9em; margin-top:0.5em;">
+            開發者：<a href="https://www.instagram.com/chiuuuuu11.7?igsh=MWRlc21zYW55dWZ5Yw==" target="_blank">Chu</a>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
