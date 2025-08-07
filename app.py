@@ -90,11 +90,12 @@ if __name__ == "__main__":
     # 第二行：開發者資訊
     st.markdown(
         """
-        <div style="text-align:center; color:gray; font-size:0.9em; margin-top:0.5em;">
+        <div style="text-align:center; color:black; font-size:1.2em; margin-top:0.5em;">
             開發者：<a href="https://www.instagram.com/chiuuuuu11.7?igsh=MWRlc21zYW55dWZ5Yw==" target="_blank">Chu</a>
         </div>
         """,
         unsafe_allow_html=True,
     )
+
 
 
