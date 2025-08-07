@@ -9,17 +9,11 @@ def main():
     # ===== HEADER =====
     st.title("📄 成績單學分計算工具")
 
-    # 使用說明（永遠顯示）
+    # 使用說明超連結
     st.markdown(
-        """
-        <div style="margin-bottom:1rem; font-size:1.1rem;">
-          📖 
-          <a href="/usage_guide.pdf" target="_blank" style="text-decoration:none;">
-            使用說明 (PDF)
-          </a>
-        </div>
-        """,
-        unsafe_allow_html=True,
+        '<p style="margin-top:-10px; margin-bottom:20px;">'
+        '📖 <a href="usage_guide.pdf" target="_blank">使用說明 (PDF)</a></p>',
+        unsafe_allow_html=True
     )
 
     st.write("請上傳 PDF（純表格）或 Word（.docx）格式的成績單檔案。")
@@ -113,3 +107,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
