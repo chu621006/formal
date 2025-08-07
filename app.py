@@ -23,9 +23,9 @@ def main():
     with open("notfound_fix.pdf", "rb") as f:
         pdf_bytes = f.read()
     st.download_button(
-        label="⚠️「未識別到任何紀錄」情況處理方式",
+        label="⚠️「未識別到任何紀錄」情況處理方式(PDF)",
         data=pdf_bytes,
-        file_name="「未識別到任何紀錄」情況處理",
+        file_name="「未識別到任何紀錄」情況處理.pdf",
         mime="application/pdf"
     )
 
@@ -102,4 +102,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
