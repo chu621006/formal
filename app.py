@@ -8,6 +8,7 @@ st.set_page_config(page_title="成績單學分計算工具", layout="wide")
 def main():
     # ---- HEADER ----
     st.title("📄 成績單學分計算工具")
+    # 使用說明連結
     st.markdown(
         """
         <div style="margin-bottom:1em; font-size:1.1em;">
@@ -30,10 +31,10 @@ def main():
         return
 
     # ---- PROCESS UPLOAD ----
-    file_ext = uploaded_file.name.split(".")[-1].lower()
-    if file_ext == "pdf":
+    ext = uploaded_file.name.split(".")[-1].lower()
+    if ext == "pdf":
         dfs = process_pdf_file(uploaded_file)
-    else:  # docx
+    else:
         dfs = process_docx_file(uploaded_file)
 
     # ---- CALCULATE ----
@@ -41,7 +42,7 @@ def main():
 
     # ---- RESULTS PANEL ----
     st.markdown("---")
-    # 查詢結果塊
+    # 查詢結果
     st.markdown(
         f"""
         <div style="display:flex; align-items:center; gap:0.5em;">
@@ -50,7 +51,7 @@ def main():
         </div>
         """, unsafe_allow_html=True
     )
-    # 總學分
+    # 目前總學分
     st.markdown(
         f"""
         <p style="font-size:2.2em; margin:0.2em 0;">
@@ -59,7 +60,8 @@ def main():
         """, unsafe_allow_html=True
     )
     # 還需學分
-    remaining = max(0, st.number_input("目標學分 (例如 128)", min_value=0.0, value=128.0, step=1.0) - total_credits)
+    target = st.number_input("目標學分 (例如128)", min_value=0.0, value=128.0, step=1.0)
+    remaining = max(0.0, target - total_credits)
     st.markdown(
         f"""
         <p style="font-size:2.2em; margin:0.2em 0;">
@@ -72,10 +74,10 @@ def main():
     st.markdown("---")
     st.markdown("📚 **通過的課程列表**")
     if passed:
-        df_passed = st.experimental_data_editor(
+        # 用 st.dataframe 顯示
+        df_passed = st.dataframe(
             passed,
-            num_rows="dynamic",
-            columns=["學年度", "學期", "科目名稱", "學分", "GPA"],
+            use_container_width=True,
         )
     else:
         st.info("沒有找到任何通過的課程。")
@@ -84,10 +86,9 @@ def main():
     st.markdown("---")
     st.markdown("⚠️ **不及格的課程列表**")
     if failed:
-        df_failed = st.experimental_data_editor(
+        st.dataframe(
             failed,
-            num_rows="dynamic",
-            columns=["學年度", "學期", "科目名稱", "學分", "GPA"],
+            use_container_width=True,
         )
     else:
         st.info("沒有找到任何不及格的課程。")
@@ -98,7 +99,7 @@ def main():
         """
         <p style="text-align:center; margin:1em 0;">
           感謝您的使用，若您有相關修改建議或發生其他類型錯誤，
-          <a href="https://forms.gle/4Wn9kDk2n55vW8rH9" target="_blank">請點選此行</a>
+          <a href="https://forms.gle/us3GG2ki4niL86Tn8" target="_blank">請點選此行</a>
         </p>
         <p style="text-align:center; margin:0.5em 0;">
           開發者：<a href="https://www.instagram.com/chiuuuuu11.7?igsh=MWRlc21zYW55dWZ5Yw==" target="_blank">Chu</a>
